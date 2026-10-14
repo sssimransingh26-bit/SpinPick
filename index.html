@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SpinPick is a colorful decision wheel for making everyday choices.">
+  <title>SpinPick — Decision Wheel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <div>
+          <p class="eyebrow">Your tiny tie-breaker</p>
+          <h1>Spin<span>Pick</span></h1>
+        </div>
+      </div>
+      <p class="header-note">Add your options, then let chance choose.</p>
+    </header>
+
+    <section class="app-grid" aria-label="Decision wheel">
+      <section class="wheel-panel">
+        <div class="wheel-heading">
+          <div>
+            <p class="eyebrow">Decision wheel</p>
+            <h2>What will it be?</h2>
+          </div>
+          <span class="option-count" id="optionCount">4 options</span>
+        </div>
+
+        <div class="wheel-stage">
+          <div class="pointer" aria-hidden="true"></div>
+          <canvas id="wheelCanvas" aria-label="Decision wheel showing your options"></canvas>
+          <div class="wheel-center" aria-hidden="true">
+            <span>SPIN</span>
+          </div>
+        </div>
+
+        <div class="result-card" id="resultCard" aria-live="polite">
+          <span class="result-label">The wheel says</span>
+          <strong id="resultText">Ready when you are!</strong>
+        </div>
+
+        <div class="wheel-actions">
+          <button class="button button-primary" id="spinButton" type="button">
+            <span aria-hidden="true">↻</span> Spin the wheel
+          </button>
+          <button class="button button-secondary" id="spinAgainButton" type="button" disabled>
+            Spin again
+          </button>
+        </div>
+      </section>
+
+      <aside class="controls-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Your choices</p>
+          <h2>What are we picking from?</h2>
+        </div>
+
+        <form class="add-form" id="addForm">
+          <label class="sr-only" for="optionInput">Add an option</label>
+          <input id="optionInput" type="text" maxlength="32" placeholder="e.g. Go for a walk" autocomplete="off">
+          <button class="button button-add" type="submit">Add</button>
+        </form>
+        <p class="form-hint" id="formHint">Add at least two options to start spinning.</p>
+
+        <ul class="option-list" id="optionList" aria-label="Current options"></ul>
+
+        <div class="panel-footer">
+          <button class="button button-reset" id="resetButton" type="button">
+            <span aria-hidden="true">↺</span> Reset to defaults
+          </button>
+          <p class="tip"><span aria-hidden="true">✦</span> Tip: the more options you add, the more surprising the result.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="app-footer">
+      <span>SpinPick</span> · Make a choice. Have a little fun.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
